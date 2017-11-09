@@ -44,26 +44,22 @@ plot_postcodes_offencelevel1 <- function(crime_data, offence_description, postco
   }
 
   # Make a data table for plotting using data.table transformations
-  offece_count = crime_data$offence_count
   plot_data <- crime_data[offence_level_1 == offence_description & postcode %in% postcodes
                           , list("total_offence_count" = sum(offence_count))
-                          , by = list("date" = format(as.Date(date), "%Y-%m"), postcode)]
+                          , by = list(date, postcode)]
 
   # Transform the plot_data structure to allow us to plot correlations
-  x <- postcodes[1]
-  y <- postcodes[2]
-
-  plot_data[, postcode := plyr::mapvalues(postcode, postcodes, c(x, y))]
+  plot_data[, postcode := plyr::mapvalues(postcode, postcodes, c("x", "y"))]
 
   plot_data <- dcast(plot_data, date ~ postcode, fun = sum,
                      fill = 0, value.var = "total_offence_count")
 
-  plot_data.m <- melt(plot_data, id.vars = "date", variable.name = "Postcodes")
-
   # Generate the plot
-  ggplot(plot_data.m, aes(as.factor(date), value, color = Postcodes)) +
-    geom_count() +
-    scale_size_area() +
-    labs(x = "Month", y = "Offence Counts at Two Postcodes") +
-    theme(axis.text = element_text(size = 7))
+  ggplot(plot_data, aes(x, y)) +
+    geom_count(aes(size = ..prop..)) +
+    scale_size_area(max_size = 1) +
+    labs(x = postcodes[1], y = postcodes[2]) +
+    theme(axis.text = element_text(size = 6),
+          axis.title.x = element_text(size = 6, face = "bold"),
+          axis.title.y = element_text(size = 6, face = "bold"))
 }
