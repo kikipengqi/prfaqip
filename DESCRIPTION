@@ -1,11 +1,13 @@
 Package: prfaqip
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: hw2_function
+Version: 0.0.0.9000
+Authors@R: person(“QI”, “PENG”, email = “kikipengqi@gmail.com”, role = c("aut", "cre"))
+Description: The function takes a data.table object of crime data, a character string of description in offence level 1, a two-element character vector of SA postcodes, and creates a plot of counts in the input offence for two postcodes by month.
+Depends: R (>= 3.2.1)
+Depends: data.table
+License: file License
 Encoding: UTF-8
 LazyData: true
+Imports: ggplot2, data.table
+Suggests: readxl
+RoxygenNote: 6.0.1
