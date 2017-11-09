@@ -1,13 +1,11 @@
 Package: prfaqip
-Title: hw2_function
+Title: What the Package Does (one line, title case)
 Version: 0.0.0.9000
-Authors@R: person(“QI”, “PENG”, email = “kikipengqi@gmail.com”, role = c("aut", "cre"))
-Description: The function takes a data.table object of crime data, a character string of description in offence level 1, a two-element character vector of SA postcodes, and creates a plot of counts in the input offence for two postcodes by month.
+Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
 Depends: R (>= 3.4.2)
-Depends: data.table
-License: file License
-Encoding: UTF-8
-LazyData: true
 Imports: ggplot2, data.table
 Suggests: readxl
-RoxygenNote: 6.0.1
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
