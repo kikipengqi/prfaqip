@@ -2,9 +2,7 @@ Package: prfaqip
 Title: A function to generate a plot showing the correlation between the crimes of two postcodes
 Version: 0.0.0.9000
 Authors@R: person("Qi", "Peng", email = "kikipengqi@gmail.com", role = c("aut", "cre"))
-Description: This function takes a data.table object of crime data, a character string of 
-description in offence level 1, a two-element character vector of SA postcodes, and creates 
-a plot of counts in the input offence for two postcodes by month.
+Description: This function takes a data.table object of crime data, a character string of description in offence level 1, a two-element character vector of SA postcodes, and creates a plot of counts in the input offence for two postcodes by month.
 Depends: R (>= 3.4.2)
 Imports: ggplot2, data.table
 Suggests: readxl
